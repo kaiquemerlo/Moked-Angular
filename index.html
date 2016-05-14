@@ -3,17 +3,26 @@
         <title>Lembretes</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="app.js"></script>
     </head>
     <body ng-app="moked">
     <div class="col-xs-12 col-md-8 col-md-offset-2 lemb-div" ng-controller="LembretesCtrl">
-
+        <div class="form-group">
+            <label>Filtrar</label>
+            <input type="text" class="form-control" ng-model="filtro">
+        </div>
+        <div class="lembrete" ng-repeat="lembrete in lembretes | filter:{'nome' : filtro}" ng-class="{ 'importante' : lembrete.importante }">
+            {{ lembrete.nome }}
+            <p>{{ lembrete.desc }}</p>
+        </div>
+        <button ng-click="buscarTxt()">Buscar</button>
     </div>
     <div>
         
     </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-        <script src="app.js"></script>
     </body>
 
 </html>

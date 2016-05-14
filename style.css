@@ -5,3 +5,16 @@ body {
 .lemb-div {
     background-color: #FFF;
 }
+
+.lembrete {
+    background-color: #F0F0F0;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.lembrete.importante {
+    border-color: #FF0000;
+    color: #FF0000;
+}
