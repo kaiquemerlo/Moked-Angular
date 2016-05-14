@@ -24,6 +24,11 @@ app.controller("LembretesCtrl", function($scope, buscarService){
         });
         alert("tchau");
     }
+
+    $scope.removeLembrete = function(lembrete) {
+        var index = $scope.lembretes.indexOf(lembrete);
+        delete $scope.lembretes[index];
+    }
 });
 
 app.service("somaService", function(){
@@ -35,7 +40,7 @@ app.service("somaService", function(){
 app.service("buscarService", function($http, $q){
     this.buscar = function(){
         var promise = $q.defer();
-        
+
         $http.get("buscar.txt").then(function(data){
             promise.resolve(data.data);
         }, function(error){
@@ -45,3 +50,15 @@ app.service("buscarService", function($http, $q){
         return promise.promise;
     }
 });
+
+
+/* TO-DO
+ * Inserir novo lembrete
+ * Remover Lembrete
+ * Criar tags pros lembretes
+ * Filtrar por tag
+ * Modificar a cor dependendo da tag
+ * Adicionar botão pra marcar lembretes já concluidos
+ * Persistir dados no local storage
+ * Traduzir para inglês
+ */

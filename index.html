@@ -17,6 +17,7 @@
         <div class="lembrete" ng-repeat="lembrete in lembretes | filter:{'nome' : filtro}" ng-class="{ 'importante' : lembrete.importante }">
             {{ lembrete.nome }}
             <p>{{ lembrete.desc }}</p>
+            <button ng-click="removeLembrete(lembrete)">Remover</button>
         </div>
         <button ng-click="buscarTxt()">Buscar</button>
     </div>
